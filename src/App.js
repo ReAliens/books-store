@@ -1,10 +1,19 @@
-import { Box, Text } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/header/header';
+import AppRoutes from './routes/routes';
+import theme from './Styles/theme';
 
 function App() {
   return (
-    <Box>
-      <Text fontSize="6xl">(6xl) In love with React Next</Text>
-    </Box>
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <Header />
+        <main>
+          <AppRoutes />
+        </main>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 
