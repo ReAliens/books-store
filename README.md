@@ -1,13 +1,14 @@
-# Math-Magicians
+# Books Store
 
-Math Magicians is a simple calculator app based on React JS as a front-end frame work
+Books Store is a personal library for you, you can add the books you loved inside this app and be always aware which book is done and which is not
 ## Built With
 
+- React-JS
+- Redux , React-Redux
 - JSX
-- Tailwind CSS
+- Chakra UI
 - JAVASCRIPT
 - Git and Github
-- React-JS
 
 
 
@@ -16,7 +17,7 @@ Math Magicians is a simple calculator app based on React JS as a front-end frame
  To Access the project locally please follow either of the two steps listed below ;
 
 STEP 1
-1. Enter this url:  https://github.com/ReAliens/math-magicians in your web browser.
+1. Enter this url:  https://github.com/ReAliens/books-store in your web browser.
 2. Once opened navigate to the top left level of the project a green code download button will be visible on the righthand side.
 3. click on the green button with name "Code", Select download Zip option from drop down menu.
 4. Once the download is extract the zip file into any folder of your choice on your system.
@@ -25,7 +26,7 @@ STEP 1
 STEP 2
 1. Open command prompt
 2. go to the designated folder where you want to clone the repository to.
-3. enter  git clone https://github.com/ReAliens/math-magicians.git
+3. enter  git clone https://github.com/ReAliens/books-store.git
 4. open your designated folder.
 5. you will be able to access my project locally.
 
