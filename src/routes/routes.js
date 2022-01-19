@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 import FullPageLoader from '../components/loader/PageLoader';
-import Books from '../redux/Books/Books';
-import Categories from '../redux/Categories/Categories';
+import Books from '../pages/Books/Books';
+import Categories from '../pages/Categories/Categories';
 
 const AppRoutes = () => (
   <Suspense fallback={<FullPageLoader />}>
