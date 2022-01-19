@@ -10,88 +10,132 @@ import {
   Box,
   Button,
 } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../../redux/Books/booksActions';
 
-const BookCard = () => (
-  <Grid
-    gridTemplateColumns="repeat(4, 1fr)"
-    gap={4}
-    p={4}
-    width="full"
-    height="170px"
-    bgColor="bgSec"
-    borderColor="borderSec"
-    borderWidth="1px"
-  >
-    <GridItem
-      colSpan={2}
-      display="flex"
-      flexDir="column"
-      justifyContent="space-between"
+const BookCard = ({ book }) => {
+  const dispatch = useDispatch();
+  const { id, title, categorey } = book;
+  const handleRemove = (id) => {
+    console.log(id);
+    dispatch(removeBook(id));
+  };
+  return (
+    <Grid
+      gridTemplateColumns="repeat(4, 1fr)"
+      gap={4}
+      p={4}
+      width="full"
+      height="170px"
+      bgColor="bgSec"
+      borderColor="borderSec"
+      borderWidth="1px"
+      mt={5}
+      borderRadius="20px"
     >
-      <Text color="textMain" fontWeight="bold" opacity={0.5}>
-        Action
-      </Text>
-      <Flex flexDir="column">
-        <Text color="textMain" fontWeight="bold" fontSize="2xl">
-          The Hunger Game
-        </Text>
-        <Text color="textSec">Suzzane Collins</Text>
-      </Flex>
-      <HStack spacing="20px" color="textSec" display="flex">
-        <Stack direction="row" h="20px" alignItems="center">
-          <Text>Comments</Text>
-          <Divider orientation="vertical" />
-        </Stack>
-        <Stack direction="row" h="20px" alignItems="center">
-          <Text>Remove</Text>
-          <Divider orientation="vertical" />
-        </Stack>
-        <Stack direction="row" h="20px" alignItems="center">
-          <Text>Edit</Text>
-        </Stack>
-      </HStack>
-    </GridItem>
-    <GridItem
-      display="flex"
-      justifyContent="space-around"
-      alignItems="center"
-      px={8}
-    >
-      <CircularProgress value={68} size="120px" color="bgBlue.200" />
-      <Box>
-        <Text fontSize="4xl" fontWeight="bold" textAlign="center">
-          68 %
-        </Text>
-        <Text fontSize="2xl" fontWeight="bold" opacity={0.5}>
-          Completed
-        </Text>
-      </Box>
-      <Divider orientation="vertical" />
-    </GridItem>
-    <GridItem display="flex" justifyContent="space-between" flexDir="column">
-      <Box mt="10px">
-        <Text fontSize="lg" color="textMain" opacity={0.5}>
-          Current Chapter
-        </Text>
-        <Text fontSize="2xl" fontWeight="bold" color="textMain">
-          Chapter 17
-        </Text>
-      </Box>
-      <Button
-        bgColor="bgBlue.200"
-        color="bgSec"
-        width="50%"
-        _hover={{
-          bgColor: 'bgSec',
-          color: 'bgBlue.200',
-          borderWidth: '1px',
-          borderColor: 'bgBlue.200',
-        }}
+      <GridItem
+        colSpan={2}
+        display="flex"
+        flexDir="column"
+        justifyContent="space-between"
       >
-        Update Progress
-      </Button>
-    </GridItem>
-  </Grid>
-);
+        <Text color="textMain" fontWeight="bold" opacity={0.5}>
+          {categorey}
+        </Text>
+        <Flex flexDir="column">
+          <Text color="textMain" fontWeight="bold" fontSize="2xl">
+            {title}
+          </Text>
+          <Text color="textSec">Author</Text>
+        </Flex>
+        <HStack spacing="20px" color="textSec" display="flex">
+          <Stack
+            direction="row"
+            h="20px"
+            alignItems="center"
+            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
+          >
+            <Text>Comments</Text>
+          </Stack>
+          <Stack
+            direction="row"
+            h="20px"
+            w="full"
+            alignItems="center"
+            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
+            onClick={() => handleRemove(id)}
+          >
+            <Divider orientation="vertical" />
+            <Text>Remove</Text>
+          </Stack>
+          <Stack
+            direction="row"
+            h="20px"
+            alignItems="center"
+            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
+          >
+            <Divider orientation="vertical" />
+            <Text>Edit</Text>
+          </Stack>
+        </HStack>
+      </GridItem>
+      <GridItem
+        display="flex"
+        justifyContent="space-around"
+        alignItems="center"
+        px={8}
+      >
+        <CircularProgress value={68} size="120px" color="bgBlue.200" />
+        <Box>
+          <Text fontSize="4xl" fontWeight="bold" textAlign="center">
+            68 %
+          </Text>
+          <Text fontSize="2xl" fontWeight="bold" opacity={0.5}>
+            Completed
+          </Text>
+        </Box>
+        <Divider orientation="vertical" />
+      </GridItem>
+      <GridItem
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        flexDir="column"
+      >
+        <Box mt="10px">
+          <Text fontSize="lg" color="textMain" opacity={0.5}>
+            Current Chapter
+          </Text>
+          <Text fontSize="2xl" fontWeight="bold" color="textMain">
+            Chapter 17
+          </Text>
+        </Box>
+        <Button
+          bgColor="bgBlue.200"
+          color="bgSec"
+          width="50%"
+          _hover={{
+            bgColor: 'bgSec',
+            color: 'bgBlue.200',
+            borderWidth: '1px',
+            borderColor: 'bgBlue.200',
+          }}
+        >
+          Update Progress
+        </Button>
+      </GridItem>
+    </Grid>
+  );
+};
+
+BookCard.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    // author: PropTypes.string.isRequired,
+    categorey: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default BookCard;
