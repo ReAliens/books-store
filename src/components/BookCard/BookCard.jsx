@@ -18,7 +18,6 @@ const BookCard = ({ book }) => {
   const dispatch = useDispatch();
   const { id, title, categorey } = book;
   const handleRemove = (id) => {
-    console.log(id);
     dispatch(removeBook(id));
   };
   return (
