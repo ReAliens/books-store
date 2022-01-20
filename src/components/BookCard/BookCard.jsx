@@ -12,13 +12,13 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../../redux/Books/booksActions';
+import { rmvBook } from '../../redux/Books/booksActions';
 
 const BookCard = ({ book }) => {
   const dispatch = useDispatch();
-  const { id, title, categorey } = book;
+  const { title, category } = book;
   const handleRemove = (id) => {
-    dispatch(removeBook(id));
+    dispatch(rmvBook(id));
   };
   return (
     <Grid
@@ -40,7 +40,7 @@ const BookCard = ({ book }) => {
         justifyContent="space-between"
       >
         <Text color="textMain" fontWeight="bold" opacity={0.5}>
-          {categorey}
+          {category}
         </Text>
         <Flex flexDir="column">
           <Text color="textMain" fontWeight="bold" fontSize="2xl">
@@ -63,7 +63,7 @@ const BookCard = ({ book }) => {
             w="full"
             alignItems="center"
             _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
-            onClick={() => handleRemove(id)}
+            onClick={() => handleRemove(book.item_id)}
           >
             <Divider orientation="vertical" />
             <Text>Remove</Text>
@@ -130,10 +130,10 @@ const BookCard = ({ book }) => {
 
 BookCard.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     // author: PropTypes.string.isRequired,
-    categorey: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 

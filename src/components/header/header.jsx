@@ -6,6 +6,7 @@ const Header = () => (
   <Flex
     pos="sticky"
     top="0"
+    zIndex="3"
     width="full"
     height="6rem"
     justifyContent="space-between"

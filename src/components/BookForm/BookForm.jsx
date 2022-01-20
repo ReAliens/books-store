@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../../redux/Books/booksActions';
 
 const BookForm = () => {
+  const dispatch = useDispatch();
   const methods = useForm({
     shouldUnregister: false,
   });
@@ -16,12 +17,11 @@ const BookForm = () => {
     reset,
     formState: { errors },
   } = methods;
-  const dispatch = useDispatch();
   const submit = (data) => {
     const id = Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1);
-    const book = { ...data, id };
+    const book = { ...data, item_id: id };
     dispatch(addBook(book));
     reset();
   };
@@ -49,7 +49,7 @@ const BookForm = () => {
             placeholder="Select Category"
             borderColor={errors.category ? 'red.500' : ''}
             // eslint-disable-next-line react/jsx-props-no-spreading
-            {...register('categorey', {
+            {...register('category', {
               required: true,
               onChange: (e) => e.target.value,
             })}
