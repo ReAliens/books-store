@@ -53,17 +53,16 @@ const BookCard = ({ book }) => {
             direction="row"
             h="20px"
             alignItems="center"
-            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
+            _hover={{ color: 'blue', cursor: 'pointer' }}
           >
             <Text>Comments</Text>
           </Stack>
           <Stack
             direction="row"
             h="20px"
-            w="full"
             alignItems="center"
-            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
             onClick={() => handleRemove(book.item_id)}
+            _hover={{ color: 'blue', cursor: 'pointer' }}
           >
             <Divider orientation="vertical" />
             <Text>Remove</Text>
@@ -72,7 +71,7 @@ const BookCard = ({ book }) => {
             direction="row"
             h="20px"
             alignItems="center"
-            _hover={{ bgColor: 'lightgray', color: 'blue', cursor: 'pointer' }}
+            _hover={{ color: 'blue', cursor: 'pointer' }}
           >
             <Divider orientation="vertical" />
             <Text>Edit</Text>
