@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/header/header';
 import AppRoutes from './routes/routes';
@@ -9,9 +9,9 @@ function App() {
     <BrowserRouter>
       <ChakraProvider theme={theme}>
         <Header />
-        <main>
+        <Box height="100%" py="50px">
           <AppRoutes />
-        </main>
+        </Box>
       </ChakraProvider>
     </BrowserRouter>
   );

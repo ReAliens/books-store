@@ -1,2 +1,9 @@
-export const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-export const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+export const ADD_BOOK_START = 'ADD_BOOK_START';
+export const ADD_BOOK_DONE = 'ADD_BOOK_DONE';
+export const ADD_BOOK_ERROR = 'ADD_BOOK_ERROR';
+export const RMV_BOOK_START = 'RMV_BOOK_START';
+export const RMV_BOOK_DONE = 'RMV_BOOK_DONE';
+export const RMV_BOOK_ERROR = 'RMV_BOOK_ERROR';
+export const FETCH_BOOKS_START = 'FETCH_BOOKS_START';
+export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
+export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
