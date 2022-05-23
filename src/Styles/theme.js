@@ -22,6 +22,7 @@ const theme = extendTheme({
         position: 'relative',
       },
       body: {
+        ovelflow: 'hidden',
         width: '100%',
         height: '100%',
         bg: 'bgMain',
