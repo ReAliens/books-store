@@ -32,11 +32,22 @@ const BookForm = () => {
         ADD NEW BOOK
       </Heading>
       <form onSubmit={handleSubmit(submit)}>
-        <Flex>
+        <Input
+          width="48%"
+          placeholder="Author"
+          name="author"
+          id="author"
+          borderColor={errors.author ? 'red.500' : ''}
+          outline={errors.author ? 'red.500' : ''}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...register('author', { required: true })}
+        />
+        <Flex marginTop="20px">
           <Input
             width="50%"
             mr="20px"
             name="bookName"
+            placeholder="Book Name"
             id="bookName"
             borderColor={errors.title ? 'red.500' : ''}
             outline={errors.title ? 'red.500' : ''}
